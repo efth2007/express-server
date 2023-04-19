@@ -1,5 +1,6 @@
 const express = require('express');
 const contactRoutes = require('./src/contact/routes');
+require("dotenv").config();
 
 const app = express();
 const port = 3000;
@@ -7,9 +8,9 @@ const port = 3000;
 app.use(express.json());
 
 app.get("/", (req, res)=>{
-    res.send("Yooooooo")
+    res.send(`Yoo ${process.env.MESSAGE}`)
 })
 
 app.use('/api/v1/contacts', contactRoutes )
 
-app.listen(port, () => console.log("LISTENING....."))
+app.listen(port, () => console.log("LISTENING....d."))
